@@ -1,0 +1,40 @@
+
+body {background-color: rgb(99,99,0);}
+.textbody{
+	background-color: rgb(99,99,0);
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	width: 700px;
+	margin: auto;
+	/*color:rgb(100,128, 0);*/
+}
+
+.commands{
+	color:rgb(74,99, 0);
+}
+
+.links{
+	color:blue;
+	
+}
+.dblinks{
+	color:green;
+	
+}
+.link_list li{
+	margin-bottom:10px;
+	color: rgb(0, 0, 0);
+}
+
+.link_list li a{
+	color: rgb(0, 0, 0);
+}
+
+.operator{
+  color: rgb(100, 0, 0);	
+}
+
+
+.footer{
+	width: 700px;
+	margin: 50px auto 50px auto;
+}

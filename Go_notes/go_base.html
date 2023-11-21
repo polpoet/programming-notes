@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<link href="../style.css" rel="stylesheet">
+<title>Go базовые команды</title>
+</head>
+<body>
+<div class="textbody">
+<h2>Go Базовые команды</h2>
+<p><b>go mod init example.com/hello  </b>   <em>Создание модуля </em></p>
+<p><b>В VC Code добавить папку каждого модуля в work space</b> <em>Если открыть все в одной папке 
+ошибка из за того что много go.mod файлов</em></p>
+
+<p><b>Go: Install/Update tools</b> <em>Набрать в поиске и установить go tool</em></p>
+<p><b>go get github.com/xuri/excelize/v2  </b>   <em> Скачать с гитхаба модуль</em></p>
+<p><b>go mod tidy  </b>   <em>чтобы синхронихировать зависимости модуля </em></p>
+<p><b>go version  </b>   <em> посмотреть установленную версию</em></p>
+<p><b>go build  </b>   <em>скомпилировать в исполняемый файл </em></p>
+<p><b>go build -o bin/hello </b>   <em>Флаг -o заставляет Go сопоставлять вывод команды с предпочитаемым вами аргументом.
+ В данном случае результатом является новый исполняемый файл с именем hello в подпапке с именем bin. </em></p>
+<p><b>./hello  </b>   <em> Запустить исполняемый файл</em></p>
+<p><b> go mod vendor </b>   <em>В Go завендоренные библиотеки должны храниться в папке vendor рядом с файлом go.mod. Чтобы 
+завендорить все используемые библиотеки, нужно выполнить команду go mod vendor. </em></p>
+<p><b>export CGO_ENABLED=0 </b> <em> Для сборки менять </em></p>
+<p><b>go env </b><em> Посмотреть ENV переменные </em></p>
+<p><b>  </b>   <em> </em></p>
+
+</div>
+
+<div class="footer">
+	<p><a href="index.html">Вернуться на стартовую</a></p>
+	<p><a href="../index.html">Стартовая справочник</a></p>
+</div>
+
+</body>
+</html>

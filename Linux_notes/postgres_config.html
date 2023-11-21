@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<link href="../style.css" rel="stylesheet">
+<title>Linux, postgres</title>
+</head>
+<body>
+<div class="textbody">
+<h2>Установка постгрес</h2>
+<p>  service --status-all <em>   //Посмотреть список сервисов </em></p>
+<p>  sudo service --status-all | grep postgres<em>   //подсветить </em> </p>
+<p>  sudo -i -u postgres<em>   //Переключение на учетную запись postgres </em> </p>
+<p>  psql <em>   // доступ к командной строке Postgres </em> </p>
+
+<p> postgres=# \q  <em>   //  </em> Закройте командную строку PostgreSQL с помощью следующей команды</p>
+<p> sudo -u postgres psql <em>   // ез переключения пользователя, доступ к командной строке Postgres</em> </p>
+<p>   <em>   //  </em> </p>
+
+
+<p>  ALTER USER postgres PASSWORD '1234'; <em>   //Добавить пароль в командной строке psql </em></p>
+
+
+
+</div>
+
+<div class="footer">
+	<p><a href="index.html">Вернуться на стартовую</a></p>
+	<p><a href="../index.html">Стартовая справочник</a></p>
+</div>
+
+</body>
+</html>

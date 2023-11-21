@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<link href="../../style.css" rel="stylesheet">
+<title>Vuetify combobox</title>
+</head>
+<body>
+<div class="textbody">
+<h2>Vue заметки</h2>
+
+<p>
+В компонентах есть встроенная функциональность.<br>
+combobox группирует все элементы по одному значению.
+В этом примере по номеру телефона а телефоны передаются одинаковые
+phoneClient.items.
+Нужно задать какой то атрибут который будет уникальным у каждого значения
+в массиве. И он не должен быть равен null
+<b>item-value="contactid"</b>
+<pre>
+&lt;VCombobox
+      v-model="phoneClient.text"
+      :search-input.sync="form.phone"
+      :items="phoneClient.items"
+      label="Телефон"
+      dense
+      item-text="phone"
+      <b>item-value="contactid"</b>
+      append-icon="fas fa-search"
+      :loading="phoneClient.loading"
+      :disabled="!activeChatId"
+      class="v-select--no-transform"
+      v-debounce="text => search('phone', text)"
+      @change="select"
+    &gt;
+</pre>
+
+</p>
+
+
+
+
+</div>
+
+<div class="footer">
+	<p><a href="../index.html">Вернуться на стартовую</a></p>
+	<p><a href="../../index.html">Стартовая справочник</a></p>
+	
+</div>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<link href="../../style.css" rel="stylesheet">
+<title>Elastic search базовые команды</title>
+</head>
+<body>
+<div class="textbody">
+<h2>Начальная настройка </h2>
+<p>php bin/magento setup:install --base-url=http://magentot.local/ --db-host=localhost --db-name=magentot --db-user=root
+--db-password=732018 --admin-firstname=pol --admin-lastname=pol --admin-email=user@example.com 
+--admin-user=pol --admin-password=admin1234 --language=en_US --currency=USD 
+--timezone=America/Chicago --use-rewrites=1 --backend-frontname=admin 
+--search-engine=elasticsearch7 --elasticsearch-host='localhost' 
+--elasticsearch-port=9200</p>
+
+<p>sudo php bin/magento setup:di:compile<i>   //перекомпиляция </i></p>
+<p>bin/magento module:status <i>   //показывает список модулей </i></p>
+
+<p>bin/magento module:disable Magento_TwoFactorAuth <i> //отключить модуль </i></p>
+
+<p>bin/magento module:enable testmodules_ModuleA <i> //включить модуль </i></p>
+
+<p>php bin/magento setup:upgrade <i>   //рекомендует чувак, очищает устанавливает модули по умолчанию </i></p>
+
+<p></p>
+
+<p></p>
+
+
+</div>
+
+<div class="footer">
+	<p><a href="index.html">Вернуться на стартовую</a></p>
+	<p><a href="../index.html">Стартовая справочник</a></p>
+</div>
+
+</body>
+</html>

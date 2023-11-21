@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<link href="../style.css" rel="stylesheet">
+<title>Docker</title>
+</head>
+<body>
+<div class="textbody">
+<h2>Git примеры порядок действий</h2>
+<div>
+
+<p>
+$ docker ps -a <i> -- Все контейнеры включая остановленные</i>
+</p>
+<p>
+$ sudo service docker start <i> -- На wsl надо службу запускать каждый раз</i>
+</p>
+<p>
+$ sudo update-alternatives --config iptables <i> -- На 22 ubuntu на legacy</i>
+</p>
+
+<p>
+$ export DOCKER_BUILDKIT=0 <i> -- Я сталкиваюсь с этой проблемой, когда создаю образ в автономной среде. 
+отключите buildkit, тогда все будет исправлено. Docker: ERROR [internal] load metadata for docker.io</i>
+</p>
+
+</div>
+
+
+
+<div class="footer">
+	<p><a href="index.html">Вернуться на стартовую</a></p>
+	<p><a href="../index.html">Стартовая справочник</a></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<link href="../style.css" rel="stylesheet">
+<title>Git примеры порядок действий</title>
+</head>
+<body>
+<div class="textbody">
+<h2>Git примеры порядок действий</h2>
+<h3>Клонирование, создание репозитория</h3>
+<div>
+<p>git clone git@git.mkz.ttk.ru:EISC/cc.skzdservice.ru_reports_go.git  /var/www/reportsgo &nbsp;&nbsp; <i> -- Клонировать в текущею папку
+</i>
+</div>
+
+<div>
+//Чтобы создать ветку и сразу же перейти на неё, вы можете выполнить команду git checkout с ключом -b:</br>
+$ git checkout -b move1</br>
+
+//Вы можете запустить тесты, убедиться, что решение работает, 
+и слить (merge) изменения назад в ветку master, 
+чтобы включить их в продукт. Это делается с помощью команды git merge:</br>
+
+$ git checkout master</br>
+$ git merge hotfix</br>
+
+git@github.com:Paul-Pans/testsai.git</br>
+
+or create a new repository on the command line</br>
+echo "# testsai" >> README.md</br>
+git init</br>
+git add README.md</br>
+git commit -m "first commit"</br>
+git remote add origin git@github.com:Paul-Pans/testsai.git</br>
+git push -u origin master</br>
+
+or push an existing repository from the command line</br>
+git remote add origin git@github.com:Paul-Pans/testsai.git</br>
+git push -u origin master</br>
+
+</div>
+<div>
+<h3>Настройка конфига</h3>
+<p>git config --list --show-origin &nbsp;&nbsp; <i> -- Чтобы посмотреть все установленные настройки и узнать где именно 
+они заданы, используйте команду:</i>
+</p>
+<p>$ git config --global user.name "John Doe" <i> -- Опять же, если указана опция --global, то эти настройки достаточно
+сделать только один раз, поскольку в этом случае Git будет использовать эти данные для всего, что 
+вы делаете в этой системе.</i>
+</p>
+<p>
+$ git config --global user.email johndoe@example.com
+</p>
+<p>
+$ git config user.name "John Doe" </br>
+$ git config user.email johndoe@example.com <i> -- Можно сделать локально для репозитория без глобал</i>
+</p>
+<p>
+$ git config --global core.filemode false <i> -- Чтоб в линуксе разрешения на файлы не считал за изменения</i>
+</p>
+<p>
+$ git config core.filemode false <i> -- Локально репозиторию, глобал не помогает нужно зайти в папку
+тогда перестает счиать разрешения на файлы за изменения</i>
+</p>
+
+<p>
+$ git remote -v<i> -- Посмотреть удаленные репозитории</i>
+</p>
+<p>
+$ git remote show origin<i> -- просмотр инофрмации об удаленном, внешнем репозитории</i>
+</p>
+</div>
+
+<h3>Действия</h3>
+<p>git log - просмотр истории коммитов</p>
+<p> git gitk -- Посмотреть </p>
+<p>$ git checkout -b move1  -- Чтобы создать ветку и сразу же перейти на неё, вы можете выполнить 
+команду git checkout с ключом -b: </p>
+<p>1. $ git checkout master -- переключится на ветку мастер<br>
+   2. $ git merge move1 -- слить move1 в ветку мастер
+</p>
+<p>
+$ git fetch [remote-name] <br>
+$ git pull [remote-name] <i> -- чтобы автоматически получить изменения из удалённой ветки и слить их со своей 
+текущей. Этот способ может для вас оказаться более простым или более удобным.
+https://git-scm.com/book/ru/v2/Основы-Git-Работа-с-удалёнными-репозиториями</i><br>
+
+</p>
+<p>git pull --progress "origin"</p>
+<p>git push [remote-name] [branch-name]  <i> -- отправить в удалённый репозиторий.</p>
+<p>
+git push "origin" dev  <i> -- отправить в удалённый репозиторий пример с dev</p>
+</p>
+<p>
+git push --recurse-submodules=check --progress "origin" refs/heads/prod:refs/heads/prod  <i> -- лог с git extensions виндовс</i></p>
+</p>
+<p>
+git  push --recurse-submodules=check --progress "origin" refs/heads/dev:refs/heads/dev <i> -- лог с git extensions виндовс </i>
+</p>
+<p>git branch <i> -- посмотреть на какой ветке находишся</p>
+<p><b>git stash </b><i> -- сохраняет неподтвержденные изменения (индексированные и неиндексированные) в отдельном хранилище,
+чтобы вы могли вернуться к ним позже</p>
+<p></p>
+
+</div>
+
+<div class="footer">
+	<p><a href="index.html">Вернуться на стартовую</a></p>
+	<p><a href="../index.html">Стартовая справочник</a></p>
+</div>
+
+</body>
+</html>

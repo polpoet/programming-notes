@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<link href="../style.css" rel="stylesheet">
+<title>Linux, администрирование</title>
+</head>
+<body>
+<div class="textbody">
+<h2>Запуск остановка служб</h2>
+<p>oot@TEST-crmRZD:~# cd /var/www/reportsgo/ <i>Пример Запуск исполняемого файла Go как службы</i></p>
+<p>root@TEST-crmRZD:/var/www/reportsgo# rm reportsgo
+<p>root@TEST-crmRZD:/var/www/reportsgo# ln -s reportsgo_v1_2_0 reportsgo
+<p>root@TEST-crmRZD:/var/www/reportsgo# ls -l reportsgo
+<p>lrwxrwxrwx 1 root root 16 мая   24 15:41 reportsgo -> reportsgo_v1_2_0
+<p>root@TEST-crmRZD:/var/www/reportsgo# supervisorctl restart reportsgo
+<p>reportsgo: stopped
+<p>reportsgo: started
+<p>root@TEST-crmRZD:/var/www/reportsgo# supervisorctl status reportsgo
+<p>reportsgo                        RUNNING    pid 31505, uptime 0:00:07
+<p>root@TEST-crmRZD:/var/www/reportsgo#</p>
+<br><br>
+<p><b>htop  </b>   <em> Посмотреть процессы</em></p>
+<p><b>sudo systemctl status redis-server  </b>   <em> Посмотреть статус</em></p>
+
+</div>
+
+<div class="footer">
+	<p><a href="index.html">Вернуться на стартовую</a></p>
+	<p><a href="../index.html">Стартовая справочник</a></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<link href="../style.css" rel="stylesheet">
+<title>Nginx базовые команды</title>
+</head>
+<body>
+<div class="textbody">
+<h2>Начальная настройка чтоб видеть все директории без индекса</h2>
+<p></p>
+
+<p> в etc/hosts надо для локала хосты настроить, пример
+<br> 127.0.0.1	localhost
+<br> 127.0.1.1	pol-vb
+
+<br> 127.0.0.2	test.local
+<br> 127.0.0.2   www.test.local</p>
+
+<p>Шаг 4 - активация виртуальных хостов и перезапуск Nginx
+Мы настроили наши виртуальные хосты, теперь настало время
+активировать их. Для этого надо создать символические ссылки на эти файлы
+и положить их в каталог sites-enabled, которые Nginx считывает при запуске.
+Создать ссылки можно следующей командой:</p>
+
+<p>sudo ln -s /etc/nginx/sites-available/example.com /etc/nginx/sites-enabled/</p>
+<p>sudo unlink /etc/nginx/sites-enabled/example.com <i>Удалить ссылку</i></p>
+
+<p>Теперь Nginx обработает эти файлы. Но виртуальный хост default, также активирован, 
+поэтому мы получим конфликт параметра default_server. Отключить эту настройку можно просто 
+удалив ссылку на файл. Сам файл останется в каталоге sites-available, 
+так что при необходимости мы всегда сможем вернуть его на место.
+
+sudo rm /etc/nginx/sites-enabled/default</p>
+<p>sudo nginx -t <em>   //проверить конфигурацию </em></p>
+<p>service nginx restart <em>   //перезапустить сервер </em></p>
+<p><b>sudo systemctl enable nginx</b> Вместо того, чтобы вручную запускать службу Nginx, 
+рекомендуется настроить ее на запуск при загрузке системы:</p>
+<p><b>sudo systemctl disable nginx</b> Отключить автозагрузку</p>
+<p></p>
+<p></p>
+
+
+</div>
+
+<div class="footer">
+	<p><a href="index.html">Вернуться на стартовую</a></p>
+	<p><a href="../index.html">Стартовая справочник</a></p>
+</div>
+
+</body>
+</html>

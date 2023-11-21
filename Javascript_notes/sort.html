@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<link href="../style.css" rel="stylesheet">
+<title>Сортировка</title>
+</head>
+<body>
+<div class="textbody">
+<h2>Сортировка</h2>
+
+	<p>
+	let tjt = $(this); </br>
+  let tt = this; </br>
+	</br> Можно получить ид и класс при клике</br>
+	console.log(tt.id);</br>
+  console.log(tt.className);
+	</p>
+	
+	<p>
+	var contacts = $('.list_tickets');</br>
+  var cont = contacts.children('li');</br>
+	</br></br>
+	
+	 cont.detach().sort(function(a, b) {
+      var astts = $(a).find('.group_questions').text();
+      var bstts = $(b).find('.group_questions').text();
+            
+            //console.log(astts);
+            
+      //return astts - bstts;
+      return (astts > bstts) ? (astts > bstts) ? 1 : 0 : -1;
+  });
+
+
+contacts.append(cont);
+	
+	
+	</p>
+	
+<p>Тест примера D:\xampp7\htdocs\test\Javascript_T\Sort\index.html</p>
+</div>
+
+
+
+<div class="footer">
+	<p><a href="index.html">Вернуться на стартовую</a></p>
+	<p><a href="../index.html">Стартовая справочник</a></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<link href="../style.css" rel="stylesheet">
+<title>SSH Linux </title>
+</head>
+<body>
+<div class="textbody">
+<h2>SSH</h2>
+
+<hr>
+<h3>
+SSH, подключение. 
+</h3>
+<p>
+//Подключение по ssh
+$ ssh имя_пользователя@айпи_адрес
+<br>
+ssh -i /home/pol/.ssh/id_rsa ppoteshkin@gp-dev.eisc.ttk.ru
+</p>
+<p><b>exit </b>   <em> Выйти и отключиться</em></p>
+<p>
+Это самый простой вариант, если вам также нужно задать порт, используйте опцию -p:
+$ ssh имя_пользователя@айпи_адрес -p порт
+</p>
+<p>
+ssh root@markab
+</p>
+<hr>
+<h3>
+SSH, операции с файлами
+</h3>
+<p> pol@MKZ-PC-0714:~$ scp dnewacook  ppoteshkin@gp-dev.eisc.ttk.ru:~/<i> Скопировать файл из папки home/pol 
+на удаленную машину <b>~/</b> - это домашний каталог</i></p>
+
+<hr>
+<h3>
+SSH, Монтирование удаленной файловой системы
+</h3>
+
+
+<p>
+//Монтирование удаленной файловой системы
+sshfs root@markab:/home/ecom/mediation/ mnt/markab
+</p>
+<p>
+sudo sshfs p.poteshkin@86.110.181.164:/var/www/null/ /mnt/test_aserver
+</p>
+<p>
+sudo sshfs ppoteshkin@10.31.212.2:/home /mnt/remoteserver
+</p>
+<p>
+sshfs ppoteshkin@10.31.212.2:/home ~/mnt <i> -- Замонтироваться в домашнею директорию</i>
+</p>
+
+<p>
+//размонтирование
+sudo umount /mnt/test_aserver 
+</p>
+
+
+</div>
+
+<div class="footer">
+	<p><a href="index.html">Вернуться на стартовую</a></p>
+	<p><a href="../index.html">Стартовая справочник</a></p>
+</div>
+
+</body>
+</html>

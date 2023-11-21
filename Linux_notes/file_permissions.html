@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<link href="../style.css" rel="stylesheet">
+<title>Linux, настройка прав на файлы, итп.</title>
+</head>
+<body>
+<div class="textbody">
+<h2>Настройка прав на файлы, создание и удаление папок, файлов итп.</h2>
+<p>  <em>   //курсив </em></p>
+<p>  <em>   //курсив </em></p>
+<p>  <em>   //курсив </em></p>
+
+
+<p>// Установка фона страницы, получилось
+// -C RRGGBB
+// Sets the full-page tint using hexadecimal color syntax. The default value is FFFAF0.
+mupdf -C fdf6e3 /home/pol/Books_manuals/Java/Shildt_Java_Complete_Guide_10_2018.pdf
+</p>
+
+<p>
+mupdf -C ccc4b0 /home/pol/Books_manuals/Java/Shildt_Java_Complete_Guide_10_2018.pdf
+</p>
+
+<p>
+//Фон из мозила чтение
+mupdf -C f4ecd8 /home/pol/Books_manuals/Java/Shildt_Java_Complete_Guide_10_2018.pdf
+</p>
+
+<p>
+//Добавить еще и разрешение dpi -r 
+mupdf -r 185 -C fdf6e3 /home/pol/Books_manuals/Java/Shildt_Java_Complete_Guide_10_2018.pdf
+</p>
+<p>
+ctr+z //в терминале выйти из запущенного процесса
+</p>
+<p>
+// проверить валидность конфига
+nginx -t
+</p>
+
+<p>
+//перезапуск nginx
+sudo service nginx restart
+</p>
+
+<p>
+//удалить папку со вложенными файлами просто rm удалить файл
+sudo rm -R test
+</p>
+
+<p>
+//Переименование файла myfile1.dat в файл myfile2.dat:
+mv myfile1.dat myfile2.dat
+</p>
+
+<p>
+//Посмотреть список пользователей
+sed 's/:.*//' /etc/passwd
+</p>
+
+<p>
+//Проверить есть ли sudo у пользователя
+sudo -v
+</p>
+<p>
+//Проверить версию линукса
+lsb_release -d
+</p>
+
+<p>
+//Посмотреть разрядность
+getconf LONG_BIT
+</p>
+
+<hr>
+<h3>Блок, сменить права на файл</h3>
+<p>
+p.poteshkin@docs:/store/uploads/2018-11-08$ sudo chown p.poteshkin gaid_1409346.xlsx
+[sudo] password for p.poteshkin:
+p.poteshkin@docs:/store/uploads/2018-11-08$
+</p>
+
+<p>
+#сменить владельца папки
+p.poteshkin@docs:/store/uploads/ sudo chown p.poteshkin 2018-11-08
+</p>
+<p>
+#сменить владельца папки и подпапок
+p.poteshkin@docs:/store/uploads/ sudo chown p.poteshkin -R 2018-11-08
+</p>
+<p>
+#сменить разрешения на папку
+chmod -R 755 folder
+</p>
+<p>
+//Поменять идентификатор группы на newgroup для /home
+chown :newgroup /home
+</p>
+
+<p>
+//Поменять имя владельца для /tmp и /var/tmp на ‘nobody’ + поменять группу для /tmp и /var/tmp на ‘nogroup’
+chown nobody:nogroup /tmp /var/tmp
+</p>
+
+<p>
+//Переключиться на другого пользователя
+sudo -s -u user_name
+</p>
+<p>
+//Создание каталогов выполняется командой "mkdir" (от англ. make directory):
+mkdir dir_name
+</p>
+
+<p>
+//Создать директорию с именем "dir1":
+mkdir dir1
+</p>
+
+<p>
+Создать две директории одновременно:
+mkdir dir1 dir2
+</p>
+
+<p>
+Создать дерево директорий:
+mkdir -p /dir1/dir2
+</p>
+
+<p>
+//скопировал файл индекс в папку тест
+sudo cp index.php test/
+</p>
+
+<hr>
+<h3>Блок, добавление в группы</h3>
+<p>
+<p>
+
+id -Gn <i>Посмотреть в какие группы входит пользователь</i>
+</p>
+<p>
+
+sudo usermod -aG www-data pol <i>Добавить в дополнительные группы</i>
+</p>
+<p><b>sudo adduser username vboxsf  </b> <em>Чтобы открывать общие папки на виртуальной машине </em></p>
+
+<hr>
+<h3>
+Распаковка файлов, установка программ
+</h3>
+<p>tar xvzf archive.tar.gz <em> //Чтобы распаковать tar.gz архив в текущую директорию </em></p>
+<p>PATH=$PATH:/usr/local/go/bin добавить в .bashrc домашней папке<em> //Чтобы export PATH=$PATH:/usr/local/go/bin 
+не удалялся после входа из терминала или перезгрузки он действует сессионо </em></p>
+
+</div>
+
+<div class="footer">
+	<p><a href="index.html">Вернуться на стартовую</a></p>
+	<p><a href="../index.html">Стартовая справочник</a></p>
+</div>
+
+</body>
+</html>

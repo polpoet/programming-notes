@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<link href="../style.css" rel="stylesheet">
+<title>PHP в линуксе</title>
+</head>
+<body>
+<div class="textbody">
+<h2>PHP установка, настройка в Линукс</h2>
+<p>sudo apt-get install php-fpm php-mysql php-pgsql php-curl php-xml php-ldap php-odbc php-xdebug <i> 
+&nbsp;&nbsp; -- Установка текущей версии из репозитория</i>
+<p>sudo apt-get install php5.6-fpm php5.6-mysql php5.6-pgsql php5.6-curl php5.6-xml php5.6-ldap php5.6-odbc php5.6-xdebug 
+php5.6-mbstring
+<i> 
+&nbsp;&nbsp; -- Установка выбраной версии из репозитория</i>
+</p>
+<p>sudo apt-get install php7.4-fpm php7.4-mysql php7.4-pgsql php7.4-curl php7.4-xml php7.4-ldap php7.4-odbc php7.4-xdebug
+php7.4-mbstring php7.4-gd php7.4-intl php7.4-zip php7.4-soap php7.4-bcmath  
+<i> 
+&nbsp;&nbsp; -- Установка выбраной версии из репозитория</i>
+</p>
+</p>
+<p>sudo apt-get install php8.0-fpm </p>
+<p>sudo apt-get install php8.0-mysql php8.0-pgsql php8.0-curl php8.0-xml php8.0-ldap php8.0-odbc php8.0-xdebug
+php8.0-mbstring php8.0-gd php8.0-intl php8.0-zip php8.0-soap php8.0-bcmath  
+<i> 
+&nbsp;&nbsp; -- Установка выбраной версии из репозитория</i>
+</p>
+
+
+
+
+<p>sudo apt-get install php8.1-fpm </p>
+<p>sudo apt-get install php8.1-mysql php8.1-pgsql php8.1-curl php8.1-xml php8.1-ldap php8.1-odbc php8.1-xdebug
+php8.1-mbstring php8.1-gd php8.1-intl php8.1-zip php8.1-soap php8.1-bcmath  
+<i> 
+&nbsp;&nbsp; -- Установка выбраной версии из репозитория</i>
+</p>
+
+
+<p>sudo systemctl restart php5.6-fpm.service
+<i> 
+&nbsp;&nbsp; -- Перезагрузка php5.6-fpm при нескольких версиях</i>
+</p>
+
+<p>sudo systemctl restart php7.4-fpm.service
+<i> 
+&nbsp;&nbsp; -- Перезагрузка php7.4-fpm при нескольких версиях</i>
+</p>
+<p>sudo systemctl restart php8.0-fpm.service
+<i> 
+&nbsp;&nbsp; -- Перезагрузка  при нескольких версиях</i>
+</p>
+<p>sudo update-alternatives --config php  <i>Переключить версию пхп для системы</i></p>	
+
+
+
+<div class="footer">
+	<p><a href="index.html">Вернуться на стартовую</a></p>
+	<p><a href="../index.html">Стартовая справочник</a></p>
+</div>
+
+</body>
+</html>

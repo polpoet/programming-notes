@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<link href="../style.css" rel="stylesheet">
+<title>Модальное окно в модальном окне</title>
+</head>
+<body>
+<div class="textbody">
+<h2>Модальное окно в модальном окне, динамические элементы DOM, id, this</h2>
+
+	<p>
+	/**После закрытия окна в окне возращает класс body чтобы была прокрутка
+	бутстрап переопределяет некоторые классы*/
+	 $('.infoBlockChoice').on('hidden.bs.modal', function (e) {
+   $('body').addClass('modal-open');
+   $('.infoBlockChoice .modal-body').empty();
+	})
+	</p>
+	<p>
+	html\modules\monitoring\secondLine\js\scripts.js c 847 строки
+	</p>
+	<p>
+	при вызове без проверки $($this).attr('id') != 'Formchoice' в модальном окне другого мадального окна 
+	накапливались клики и не закрывалось. А так проверка по id
+	</br></br>
+	...} <span class='operator'>else if</span>(CheckConfirm == false && $($this).attr('id') != 'Formchoice') {
+
+        $("#cf_1462").css("background-color", "rgba(230, 143, 140, 0.5)");</br>
+        $('#modalTickets').css('z-index','1040');</br>
+        $('.infoBlockChoice .modal-body').append('Не заполнено поле нормативный срок.').css({'color' : 'red', 'fontSize': '16px'});
+</br>
+      ....</br>
+      return false;</br>
+	 } else ...
+	 
+	</p>
+	<p>
+	В подобных задачах обратить внимание на накапливание кликов.</br>
+	В ui типо bootstrap есть дополнительные функции для очисти итп.</br>
+	
+	
+	</p>
+
+</div>
+
+
+
+<div class="footer">
+	<p><a href="index.html">Вернуться на стартовую</a></p>
+	<p><a href="../index.html">Стартовая справочник</a></p>
+</div>
+
+</body>
+</html>

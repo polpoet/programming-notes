@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<link href="../style.css" rel="stylesheet">
+<title>Docker шпаргалка</title>
+</head>
+<body>
+<div class="textbody">
+<h2>Шпаргалка с командами Docker</h2>
+<div>
+
+<h4>Реестры и репозитории Docker</h4>
+<hr>
+<p>
+Docker репозиторий позволяет хранить одну или несколько версий определенного докер образа.
+Образ может иметь одну или более версий(в терминологии docker версия называется тэг).
+Docker образ можно сравнить с git репозиторием.
+Docker репозиторий - это место для хранения докер образов, вы можете пушить в него свои образы
+и скачивать их. Аналогично git репозиторий, это место, куда вы можете пушить изменения кода и откуда
+вы можете их скачивать.
+</p>
+<p>
+Docker Hub и другие стороние сервисы для хостинга докер репозиториев (в том числе собственноручно настроенные)
+называются реестрами registry. В реестре registry обычно хранится набор репозиториев.
+
+</p>
+<hr>
+
+<p>
+$ docker login <br>$ docker login localhost:8000<i><b> -- Вход в реестр</b></i>
+
+</p>
+<p>
+$ docker logout <br> $ docker logout localhost:8080  <i> -- Выход из реестра</i>
+</p>
+<p>
+$ docker search nginx <br>$ docker search nginx -- filter stars=3 --no-trunc busybox <i> -- Поиск образа</i>
+</p>
+<p>
+$ docker pull nginx <br>$ docker pull eon01/nginx localhost:5000/myadmin/nginx<i> -- Pull выгрузка из реестра образа</i>
+</p> 
+<p>
+$ docker push eon01/nginx <br>$ docker push eon01/nginx localhost:5000/myadmin/admin <i> -- Push загрузка в реестр образа</i>
+</p>
+<h4>Первые действия с контейнерами</h4>
+<hr>
+
+<p>
+$ docker create -t -i eon01/infinite --name infinite <i> -- Создание контейнера</i>
+</p>
+<p>
+$ docker run -it --name infinite -d eon01/infinite  <i> --Первый запуск контейнера </i>
+</p>
+<p>
+$ docker rename infinite infinity <i> -- Переименование контейнера</i>
+</p>
+
+<p>
+$ docker rm infinite  <i> -- Удаление контейнера</i>
+</p>
+
+<p>
+$ docker update --cpu-shares 512 -m 300M infinite <i> -- Обновление контейнера</i>
+</p>
+
+<h4>Запуск и остановка контейнера</h4>
+<hr>
+
+<p>
+$ docker start nginx  <i><b> -- Запуск остановленного контейнера </b></i>
+</p>
+
+<p>
+$ docker stop nginx  <i><b> --Остановка </b></i>
+</p>
+
+<p>
+$ docker restart nginx  <i><b> --Перезагрузка </b></i>
+</p>
+
+<p>
+$ docker pause nginx <i><b> -- Пауза приостановка всех процессов контейнера </b></i>
+</p>
+
+<p>
+$ docker unpause nginx <i><b> -- Снятие паузы</b></i>
+</p>
+
+<p>
+$ docker wait nginx<i><b> -- Блокировка до остановки контейнера </b></i>
+</p>
+
+<p>
+$ docker kill nginx<i><b> -- Отправка SIGKILL завершающего сигнала</b></i>
+</p>
+
+<p>
+$ docker kill -s HUP nginx<i><b> -- Отправка другого сигнала</b></i>
+</p>
+
+<p>
+$ docker attach nginx<i><b> -- Подключение к существующему контейнеру</b></i>
+</p>
+
+<h4>Получение информации о контейнерах</h4>
+<hr>
+
+<p>
+$ docker ps<i><b> -- Работающие контейнеры </b></i>
+</p>
+
+<p>
+$ docker ps -a<i><b> -- Все контейнеры </b></i>
+</p>
+
+<p>
+$ docker logs infinite <i><b> -- Логи контейнера </b></i>
+</p>
+
+<p>
+$ docker inspect infinite<i><b> -- Информация о контейнере</b></i>
+</p>
+<p>
+$ docker inspect --format '{{ .NetworkSettings.IPAdress }}' $(docker ps -q)<i><b> -- Информация о контейнере</b></i>
+</p>
+
+
+<p>
+$ docker events infinite<i><b> -- События контейнера </b></i>
+</p>
+
+<p>
+$ docker port infinite<i><b> -- Публичные порты </b></i>
+</p>
+
+<p>
+$ docker top infinite <i><b> -- Выполняющееся процессы  </b></i>
+</p>
+
+<p>
+$ docker stats infinite <i><b> --  Использование ресурсов </b></i>
+</p>
+
+<p>
+$ docker diff infinite <i><b> -- Изменения в файлах или директориях файловой системы контейнеров  </b></i>
+</p>
+
+<h4>Управление образами</h4>
+<hr>
+
+<p>
+$ docker images <i><b> -- Список образов  </b></i>
+</p>
+
+<p>
+<i><b> -- Создание образа   </b></i>
+<br>$ docker build .
+<br>$ docker build github.com/creack/docker-firefox
+<br>$ docker build - &lt; Dockerfile
+<br>$ docker build - &lt; context.tar.gz
+<br>$ docker build -t eon/infinite .
+<br>$ docker build -f myOtherDockerfile .
+<br>$ curl example.com/remote/Dockerfile | docker build -f - .
+</p>
+
+<p>
+$ docker rmi nginx <i><b> -- Удаление образов</b></i>
+</p>
+
+<p>
+<i><b> -- Загрузка репозитория в tar из файла или стандартного ввода </b></i>
+<br>$ docker load &lt; ubuntu.tar.gz
+<br>$ docker load --input ubuntu.tar
+</p>
+
+
+<p>
+$ docker save busybox &gt; ubuntu.tar<i><b> -- Сохранение образа в tar архив   </b></i>
+</p>
+
+<p>
+$ docker history <i><b> -- Просмотр истории образа  </b></i>
+</p>
+
+<p>
+$ docker commit nginx <i><b> -- Создание образа из контейнера   </b></i>
+</p>
+
+<p>
+$ docker tag nginx eon01/nginx <i><b> -- Тэегирование образа   </b></i>
+</p>
+
+<p>
+$ docker push eon01/nginx <i><b> -- Push загрузка в реестр образа</b></i>
+</p>
+
+<h4>Сеть</h4>
+<hr>
+
+<p>
+<i><b> -- Создание сети </b></i>
+<br>$ docker network create -d overlay MyOverlayNetwork
+<br>$ docker network create -d bridge MyBridgeNetwork
+<br><br>$ docker network create -d overlay \
+<br>&nbsp;&nbsp;&nbsp;&nbsp;--subnet=192.168.0.0/16 \
+<br>&nbsp;&nbsp;&nbsp;&nbsp;--subnet=192.170.0.0/16 \
+<br>&nbsp;&nbsp;&nbsp;&nbsp;--gateway=192.168.0.100 \
+<br>&nbsp;&nbsp;&nbsp;&nbsp;--gateway=192.170.0.100 \
+<br>&nbsp;&nbsp;&nbsp;&nbsp;--ip-range=192.168.1.0/24 \
+<br>&nbsp;&nbsp;&nbsp;&nbsp;--aux-address="my-router=192.168.1.5" --aux-address="my-switch=192.168.1.6" \
+<br>&nbsp;&nbsp;&nbsp;&nbsp;--aux-address="my-printer=192.170.1.5" --aux-address="my-nas=192.170.1.6" \
+<br>MyOverlayNetwork
+
+</p>
+
+
+
+<p>
+$ docker network rm MyOverlayNetwork <i><b> -- Удаление сети  </b></i>
+</p>
+
+<p>
+$ docker network ls  <i><b> -- Список сетей  </b></i>
+</p>
+
+<p>
+$ docker network inspect MyOverlayNetwork <i><b> -- Получение информации о сети</b></i>
+</p>
+
+<p>
+$ docker network connect MyOverlayNetwork  <i><b> -- Подключение работающено контейнера к сети</b></i>
+</p>
+<p>
+$ docker run -it -d --network=MyOverlayNetwork nginx <i><b> -- подключение контейнера к сети при его запуске  </b></i>
+</p>
+<p>
+$ docker network disconnect MyOverlayNetwork nginx <i><b> -- отключение контейнера от сети  </b></i>
+</p>
+
+<h4>Очистка Docker</h4>
+<hr>
+<p>
+$ docker rm nginx <i><b> -- Удаление работающего контейнера </b></i>
+</p>
+<p>
+$ docker rm -v nginx <i><b> -- Удаление контейнера и его тома(volume)  </b></i>
+</p>
+<p>
+$ docker rm $(docker ps -a -f status=exited -q) <i><b> -- Удаление всех контейнеров со статусом exited </b></i>
+</p>
+<p>
+$ docker container prune <i><b> -- Удаление всех остановленных контейнеров  </b></i>
+</p>
+<p>
+$ docker rm `docker ps -a -q` <i><b> -- Удаление всех остановленных контейнеров, другой вариант  </b></i>
+</p>
+<p>
+$ docker container prune --filter "until=24h" <i><b> -- Удаление контейнеров остановленных более суток назад  </b></i>
+</p>
+<p>
+$ docker rmi nginx <i><b> -- Удаление образа </b></i>
+</p>
+<p>
+$ docker image prune <i><b> -- Удаление неиспользуемых (dangling) образов </b></i>
+</p>
+<p>
+$ docker rmi $(docker images -f dangling=true -q) <i><b> -- Удаление неиспользуемых (dangling) образов </b></i>
+</p>
+<p>
+$ docker image prune -a <i><b> -- Удаление неиспользуемых (dangling) образов даже с тегами  </b></i>
+</p>
+<p>
+$ docker rmi $(docker images -a -q) <i><b> -- Удаление всех образов  </b></i>
+</p>
+<p>
+$ docker rmi -f $(docker images | grep "^<none>"| awk "{print $3}") <i><b> -- Удаление всех образов без тэгов  </b></i>
+</p>
+<p>
+$ docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q) <i><b> -- Остановка и удаление всех контейнеров  </b></i>
+</p>
+<p>
+$ docker volume prune <i><b> -- Удаление неиспользуемых (dangling - обособленных) томов   </b></i>
+</p>
+<p>
+$ docker volume rm $(docker volume ls -f dangling=true -q) <i><b> -- Удаление неиспользуемых (dangling - обособленных) томов, другой вариант</b></i>
+</p>
+<p>
+$ docker volume prune --filter "label!=keep" <i><b> -- Удаление неиспользуемых (dangling) томов по фильтру </b></i>
+</p>
+<p>
+$ docker network prune <i><b> -- Удаление неиспользуемых сетей  </b></i>
+</p>
+<p>
+$ docker system prune <i><b> -- Удаление всех неиспользуемых объектов  </b></i>
+</p>
+<p>
+$ docker system prune --volumes <i><b> -- По умолчанию для Docker 17.06.1+ тома не удаляются. Чтобы удалились они тоже  </b></i>
+</p>
+
+<h3>Docker Swarm</h3>
+
+<p>
+$ curl --ssl https://get.docker.com | bash <i><b> -- В Docker версии 1.12.0 + ничего дополнительного устанавливать не требуется
+, так как Docker Swarm встроен в Docker Engine в виде специального режима ( Swarm mode )  </b></i>
+</p>
+<p>
+$ docker swarm init --advertise-addr 192.168.10.1 <i><b> -- Инициализация Swarm  </b></i>
+</p>
+
+<p>
+$ docker swarm join-token worker <i><b> -- Подключение рабочего узла (worker) к Swarm </b></i>
+</p>
+<p>
+$ docker swarm join-token manager <i><b> -- Подключение управляющего узла (manager) к Swarm  </b></i>
+</p>
+<p>
+$ docker service ls <i><b> -- Список сервисов   </b></i>
+</p>
+<p>
+$ docker nude ls <i><b> -- Список узлов  </b></i>
+</p>
+<p>
+$ docker service create --name vote -p 8080:80 instavote/vote <i><b> --   </b></i>
+</p>
+<p>
+$ docker service ps <i><b> -- Список заданий Swarm  </b></i>
+</p>
+<p>
+$ docker service update --image instavote/vote:movies vote <i><b> -- Обновление сервиса   </b></i>
+</p>
+<p>
+$ docker service update --force --update-parallelism 1 --update-delay 30s nginx <i><b> --   </b></i>
+</p>
+<p>
+$ docker service update --update-parallelism 5--update-delay 2s --image instavote/vote:indent vote <i><b> --   </b></i>
+</p>
+<p>
+$ docker service update --limit-cpu 2 nginx <i><b> --   </b></i>
+</p>
+<p>
+$ docker service update --replicas=5 nginx <i><b> --   </b></i>
+</p>
+
+
+<h3>Проверить переменные окружения</h3>
+<p>
+$ docker exec nginx env <i><b> -- проверить переменные окружения  </b></i>
+</p>
+
+<h3>Параметры в docker-compose и Dockerfile</h3>
+<div>
+<table border="1" bordercolor="black" cellspacing="0">
+	<tr>
+		<td>docker cli</td>
+		<td>docker-compose.yml</td>
+		<td>Dockerfile</td>
+	</tr>
+	<tr>
+		<td>--name sample</td>
+		<td>container_name: sample</td>
+		<td> - </td>
+	</tr>
+	<tr>
+		<td>-e BASE=asdf</td>
+		<td>environment: - BASE=asdf</td>
+		<td>ENV BASE=asdf</td>
+	</tr>
+	<tr>
+		<td>--volume `pwd`/src/:/app/src/</td>
+		<td>volumes: - ./src/:/app/src/</td>
+		<td> - </td>
+	</tr>
+	<tr>
+		<td>--publich 8080:3000</td>
+		<td>ports: - ""8000:3000</td>
+		<td> - </td>
+	</tr>
+	<tr>
+		<td>ubuntu:18:04</td>
+		<td>image: ubuntu:18.04</td>
+		<td>FROM ubuntu:18.04</td>
+	</tr>
+	<tr>
+		<td>sleep 1000</td>
+		<td>comand: sleep 1000</td>
+		<td>CMD sleep 1000</td>
+	</tr>
+<table>
+
+
+</div>
+
+
+
+<p>
+$  <i><b> --   </b></i>
+</p>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+<div class="footer">
+	<p><a href="index.html">Вернуться на стартовую</a></p>
+	<p><a href="../index.html">Стартовая справочник</a></p>
+</div>
+
+</body>
+</html>
