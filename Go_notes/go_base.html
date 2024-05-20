@@ -25,6 +25,14 @@
 <p><b>export CGO_ENABLED=0 </b> <em> Для сборки менять </em></p>
 <p><b>go env </b><em> Посмотреть ENV переменные </em></p>
 <p><b>  </b>   <em> </em></p>
+<p><b>go get github.com/someone/some_module@af044c0995fe </b>   <em> Выбрать коммит пакета </em></p>
+<p><b>go get github.com/someone/some_module@master</b>   <em> Выбрать ветку пакета</em></p>
+<p><b>go get github.com/someone/some_module@dev_branch</b><em>Выбрать ветку пакета </em></p>
+<p><b>go env -w GOPRIVATE=gitlab.posiflora.com</b><em>Добавить приватный репозиторий чтобы скачивать пакеты </em></p>
+<p><b>replace gitlab.posiflora.com/development-kits/go-api-client => /home/local/Project/go-api-client</b>
+			<em> Переопределить пакеты чтоб локальные правки тянуть</em></p>
+
+
 
 </div>
 

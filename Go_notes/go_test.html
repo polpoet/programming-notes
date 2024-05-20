@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<link href="../style.css" rel="stylesheet">
+<title>Go тестирование</title>
+</head>
+<body>
+<div class="textbody">
+<h2>Go тестирование команды</h2>
+<p><b>go test -v  </b>   <em>С подробным выводом в папке пакета</em></p>
+<p><b>go test -run TestCheckCustomer  </b>   <em>В директории конкретный тест</em></p>
+<p><b>//go:generate go run github.com/vektra/mockery/v3 --srcpkg=gitlab.posiflora.com/amo-service/internal/core/services/ordersrv --name=CustomerRepository --output=mock_customer_repository.go  </b>
+ <em>Сгенерировать мок из другого файла с интерфейсом указать интерфейс</em></p>
+<p><b>go test ./...  </b>   <em>Запустить все тесты в проекте</em></p>
+
+
+</div>
+
+<div class="footer">
+	<p><a href="index.html">Вернуться на стартовую</a></p>
+	<p><a href="../index.html">Стартовая справочник</a></p>
+</div>
+
+</body>
+</html>
